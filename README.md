@@ -1,6 +1,6 @@
-# hello_world
+# Capstone project
 
-A new Flutter project.
+A new Flutter project that was developed during the course on udemy on flutter. The course link: https://www.udemy.com/learn-flutter-dart-to-build-ios-android-apps/
 
 ## Getting Started
 
