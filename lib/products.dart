@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './pages/product.dart';
 //products widget, costructed by taking list of strings
 //which then mapped to cards with same asset.
 //We get iterable and then change iterable into list
