@@ -14,9 +14,8 @@ class MyApp extends StatefulWidget {
   }
 }
 
- class _MyAppState extends State<MyApp>{
-  List<Map> _products = []; 
-
+class _MyAppState extends State<MyApp> {
+  List<Map> _products = [];
 
   void _deleteProduct(int index) {
     setState(() {
@@ -47,7 +46,6 @@ class MyApp extends StatefulWidget {
         '/admin': (context) => AdminProduct()
       },
       onGenerateRoute: (RouteSettings settings) {
-        
         final List<String> pathElements = settings.name.split('/');
         if (pathElements[0] != '') {
           return null;
@@ -55,8 +53,7 @@ class MyApp extends StatefulWidget {
         if (pathElements[1] == 'products') {
           final int index = int.parse(pathElements[2]);
 
-
-          return MaterialPageRoute <bool> (
+          return MaterialPageRoute<bool>(
             // it is included because we may need animation
             //thats why additinal widget
             builder: (context) => ProductPage(_products[index]['title'],
@@ -64,6 +61,11 @@ class MyApp extends StatefulWidget {
             //to pass data between widgets
           );
         }
+      },
+      onUnknownRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+            builder: (context) =>
+                ProductsPage(_products, _addProducts, _deleteProduct));
       },
     ); //here we use named arguments
   }
