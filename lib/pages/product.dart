@@ -49,7 +49,6 @@ class ProductPage extends StatelessWidget {
               children: <Widget>[
                 Image.asset(imageURL),
                 Container(
-                    color: Theme.of(context).accentColor,
                     padding: EdgeInsets.all(10.0),
                     child: Text(title)),
                 RaisedButton(

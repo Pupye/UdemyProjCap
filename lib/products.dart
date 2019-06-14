@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 
 class Products extends StatelessWidget {
   final List<Map> products;
-  final Function deleteProduct;
-  Products(this.products, {this.deleteProduct});
+  Products(this.products);
 
   Widget _buildProductItem(context, int index) {
     return Card(
@@ -22,11 +21,7 @@ class Products extends StatelessWidget {
           ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
             FlatButton(
               child: Text('Details'),
-              onPressed: () => Navigator.pushNamed<bool>(context, '/products/'+index.toString()).then((bool value) {
-                    if (value) {
-                      deleteProduct(index);
-                    }
-                  }),
+              onPressed: () => Navigator.pushNamed<bool>(context, '/products/'+index.toString())
             ),
           ]),
         ],

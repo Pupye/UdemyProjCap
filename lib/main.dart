@@ -42,8 +42,8 @@ class _MyAppState extends State<MyApp> {
       ),
       // home: AuthPage(),
       routes: {
-        '/': (context) => ProductsPage(_products, _addProducts, _deleteProduct),
-        '/admin': (context) => AdminProduct()
+        '/': (context) => ProductsPage(_products),
+        '/admin': (context) => AdminProduct(_addProducts, _deleteProduct)
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
@@ -61,11 +61,12 @@ class _MyAppState extends State<MyApp> {
             //to pass data between widgets
           );
         }
+        return null; 
       },
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
             builder: (context) =>
-                ProductsPage(_products, _addProducts, _deleteProduct));
+                ProductsPage(_products));
       },
     ); //here we use named arguments
   }

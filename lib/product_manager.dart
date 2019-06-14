@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:hello_world/products.dart';
-import 'product_control.dart';
+
 
 //connecting widget connects button(product controll) with text
 class ProductManager extends StatelessWidget {
   final List<Map> products;
-  final Function addProduct; 
-  final Function deleteProduct; 
+   
 
-  ProductManager(this.products, this.addProduct, this.deleteProduct); 
+  ProductManager(this.products); 
 
    //this field is unique and
   //instantiated when object created
@@ -30,13 +29,7 @@ class ProductManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Container(
-        margin: EdgeInsets.all(10.0),
-        child: ProductControl(
-            addProduct), //passing down a refernce to a function that
-        // executes in parent. like javaScript closure
-      ),
-      Expanded(child: Products(products, deleteProduct: deleteProduct))
+      Expanded(child: Products(products)),
     ]);
   }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ProductCreatePage extends StatefulWidget {
+  final Function _addProduct;
+
+  ProductCreatePage(this._addProduct);
   @override
   State<StatefulWidget> createState() {
     return _ProductCreatePageState();
@@ -18,8 +21,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
       child: ListView(
         children: <Widget>[
           TextField(
-            decoration: InputDecoration(
-              labelText: 'Name of the product'),
+            decoration: InputDecoration(labelText: 'Name of the product'),
             onChanged: (String value) {
               setState(() {
                 titleValue = value;
@@ -28,9 +30,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
           ),
           TextField(
             maxLines: 6,
-            decoration: InputDecoration(
-              labelText: 'Describe the product'
-            ),
+            decoration: InputDecoration(labelText: 'Describe the product'),
             onChanged: (String value) {
               setState(() {
                 descriptionValue = value;
@@ -48,11 +48,20 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
               });
             },
           ),
+          SizedBox(height: 10.0,), 
 
-        MaterialButton(
-          onPressed: () {},
-          child: Text('Save'),
-        )
+          MaterialButton(
+            onPressed: () {
+              widget._addProduct({
+                'title': titleValue,
+                'description': descriptionValue,
+                'price': priceValue,
+                'image': 'assets/zhoka.jpg',
+              });
+              Navigator.pushReplacementNamed(context, '/');
+            },
+            child: Text('Save'),
+          )
         ],
       ),
     );
