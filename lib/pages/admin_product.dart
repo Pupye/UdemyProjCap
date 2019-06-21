@@ -23,7 +23,7 @@ class AdminProduct extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text('Products'),
-                  onTap: () => Navigator.pushReplacementNamed(context, '/'),
+                  onTap: () => Navigator.pushReplacementNamed(context, '/products'),
                 )
               ],
             ),

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/rendering.dart';
+import 'package:hello_world/pages/auth.dart';
 import 'package:hello_world/pages/products.dart';
 import './pages/product.dart';
 import './pages/admin_product.dart';
 
 void main() {
+  // debugPaintSizeEnabled = true;
   runApp(MyApp());
 }
 
@@ -37,12 +40,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+         
         primarySwatch: Colors.deepOrange,
         accentColor: Colors.deepPurple,
       ),
-      // home: AuthPage(),
+      home: AuthPage(),
       routes: {
-        '/': (context) => ProductsPage(_products),
+        '/products': (context) => ProductsPage(_products),
         '/admin': (context) => AdminProduct(_addProducts, _deleteProduct)
       },
       onGenerateRoute: (RouteSettings settings) {
