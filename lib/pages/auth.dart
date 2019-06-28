@@ -7,9 +7,8 @@ class AuthPage extends StatefulWidget {
   }
 }
 
-
-class _AuthPageState extends State <AuthPage>{
-  bool _acceptTerms = false; 
+class _AuthPageState extends State<AuthPage> {
+  bool _acceptTerms = false;
 
   @override
   Widget build(BuildContext context) {
@@ -18,32 +17,45 @@ class _AuthPageState extends State <AuthPage>{
           title: Text('Authorization'),
         ),
         body: Container(
-          margin: EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.5), BlendMode.dstATop),
+                  image: AssetImage('assets/background.jpg'))),
+          padding: EdgeInsets.all(10.0),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 TextField(
-                  decoration: InputDecoration(labelText: 'Username'),
+                  decoration: InputDecoration(
+                      labelText: 'Username',
+                      filled: true,
+                      fillColor: Colors.white),
                 ),
                 SizedBox(
                   height: 30.0,
                 ),
                 TextField(
                   obscureText: true,
-                  decoration: InputDecoration(labelText: 'Password'),
+                  decoration: InputDecoration(
+                      labelText: 'Password',
+                      filled: true,
+                      fillColor: Colors.white),
                 ),
                 SwitchListTile(
                   title: Text('Accept terms'),
                   value: _acceptTerms,
                   onChanged: (bool value) {
                     setState(() {
-                      _acceptTerms = value; 
+                      _acceptTerms = value;
                     });
                   },
                 ),
                 SizedBox(height: 20.0),
                 MaterialButton(
-                  child: Text('Login'),
+                  color: Theme.of(context).primaryColor,
+                  child: Text('Login', style: TextStyle(color: Colors.white)),
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, '/products');
                   },

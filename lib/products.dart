@@ -44,11 +44,27 @@ class Products extends StatelessWidget {
                   )
                 ],
               )),
+          DecoratedBox(
+              decoration: BoxDecoration(
+                border:
+                    Border(bottom: BorderSide(color: Colors.grey, width: 1.0)),
+                // borderRadius: BorderRadius.circular(4.5),
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+                child: Text('Some address'),
+              )),
           ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
-            FlatButton(
-                child: Text('Details'),
+            IconButton(
+                icon: Icon(Icons.info),
+                color: Theme.of(context).accentColor,
                 onPressed: () => Navigator.pushNamed<bool>(
                     context, '/products/' + index.toString())),
+            IconButton(
+              icon: Icon(Icons.favorite_border),
+              color: Colors.red,
+              onPressed: () {},
+            )
           ]),
         ],
       ),

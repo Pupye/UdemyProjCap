@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map> _products = [];
+  List<Map> _products = [{'title': 'chocolate', 'image':'assets/zhoka.jpg','price':'12'} ];
 
   void _deleteProduct(int index) {
     setState(() {
