@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map> _products = [{'title': 'chocolate', 'image':'assets/zhoka.jpg','price':'12'} ];
+  List<Map> _products = [{'title': 'fancy fried eggs', 'image':'assets/zhoka.jpg','price': 12.0, 'description':'it is very tasty'},];
 
   void _deleteProduct(int index) {
     setState(() {
@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
             // it is included because we may need animation
             //thats why additinal widget
             builder: (context) => ProductPage(_products[index]['title'],
-                _products[index]['image']), //you always use the constructor
+                _products[index]['image'], _products[index]['price'], _products[index]['description']), //you always use the constructor
             //to pass data between widgets
           );
         }

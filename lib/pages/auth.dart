@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AuthPage extends StatefulWidget {
@@ -9,24 +10,28 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   bool _acceptTerms = false;
-
   @override
   Widget build(BuildContext context) {
+    final double deviceWidth = MediaQuery.of(context).size.width; 
+
+    final double targetWidth = deviceWidth > 550.0 ? 500.0 : deviceWidth * 0.95;
     return Scaffold(
         appBar: AppBar(
           title: Text('Authorization'),
         ),
         body: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                      Colors.black.withOpacity(0.5), BlendMode.dstATop),
-                  image: AssetImage('assets/background.jpg'))),
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        Colors.black.withOpacity(0.5), BlendMode.dstATop),
+                    image: AssetImage('assets/background.jpg'))),
+            padding: EdgeInsets.all(10.0),
+            child: Center(
+                child: SingleChildScrollView(
+                    child: Container(
+                      width: targetWidth,
+              child: Column(children: <Widget>[
                 TextField(
                   decoration: InputDecoration(
                       labelText: 'Username',
@@ -61,6 +66,6 @@ class _AuthPageState extends State<AuthPage> {
                   },
                 ),
               ]),
-        ));
+            )))));
   }
 }
